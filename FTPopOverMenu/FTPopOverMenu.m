@@ -114,6 +114,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         self.coverBackgroundColor = FTDefaultBackgroundColor;
         self.imageSize = CGSizeMake(FTDefaultMenuIconSize, FTDefaultMenuIconSize);
         self.horizontalMargin = FTDefaultMargin;
+        self.showType = -1;
     }
     return self;
 }
@@ -490,6 +491,27 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         menuCell.separatorInset = UIEdgeInsetsMake(0, self.bounds.size.width, 0, 0);
     }else{
         menuCell.separatorInset = self.config.separatorInset;
+    }
+    
+    if( self.config.showType == 0 ){
+        if( [title isEqualToString:@"星标聊天"] ){
+            menuCell.menuNameLabel.alpha = 0.7;
+            menuCell.iconImageView.alpha = 0.7;
+        }else{
+            menuCell.menuNameLabel.alpha = 1;
+            menuCell.iconImageView.alpha = 1;
+        }
+    }else if( self.config.showType == 1 ){
+        if( [title isEqualToString:@"全部聊天"] ){
+            menuCell.menuNameLabel.alpha = 0.7;
+            menuCell.iconImageView.alpha = 0.7;
+        }else{
+            menuCell.menuNameLabel.alpha = 1;
+            menuCell.iconImageView.alpha = 1;
+        }
+    }else{
+        menuCell.menuNameLabel.alpha = 1;
+        menuCell.iconImageView.alpha = 1;
     }
     return menuCell;
 }

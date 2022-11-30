@@ -37,6 +37,10 @@ typedef void (^FTPopOverMenuDismissBlock)(void);
  */
 @interface FTPopOverMenuConfiguration : NSObject
 
+
+/// -1正常  (私信区分星标状态 0 全部  1星标)
+@property (nonatomic, assign) NSInteger showType;
+
 @property (nonatomic, assign) CGFloat menuTextMargin;// Default is 6.
 @property (nonatomic, assign) CGFloat menuIconMargin;// Default is 6.
 @property (nonatomic, assign) CGFloat menuRowHeight;
